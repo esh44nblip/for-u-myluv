@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Devangana ❤️</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at center, #2b0008 0%, #0f0003 100%);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      color: #ffffff;
+      position: relative;
+      padding: 20px;
+    }
+
+    /* Floating Elements */
+    .bg-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      opacity: 0.4;
+      animation: float 7s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
+    }
+
+    /* Container Settings */
+    .container {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 550px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Page Transitions */
+    .page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .page.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* PAGE 1 LANDING */
+    .welcome-card {
+      background: rgba(50, 0, 10, 0.6);
+      border: 1px solid rgba(255, 120, 150, 0.2);
+      backdrop-filter: blur(16px);
+      padding: 45px 30px;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+      width: 100%;
+    }
+
+    .welcome-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #ffb3c1;
+      margin-bottom: 12px;
+      text-shadow: 0 0 12px rgba(255, 179, 193, 0.3);
+    }
+
+    .welcome-subtitle {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: #e0b0b8;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .start-btn {
+      background: linear-gradient(135deg, #800020 0%, #b30032 100%);
+      color: #ffffff;
+      border: 1px solid rgba(255, 182, 193, 0.4);
+      padding: 14px 34px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(179, 0, 50, 0.5);
+      touch-action: manipulation;
+    }
+
+    .start-btn:active {
+      transform: scale(0.96);
+    }
+
+    /* PAGE 2 LETTER PAGE */
+    .page-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #ffb3c1;
+      margin-bottom: 15px;
+    }
+
+    .music-container {
+      margin-bottom: 25px;
+      background: rgba(60, 0, 15, 0.6);
+      backdrop-filter: blur(12px);
+      padding: 8px 20px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 182, 193, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .music-btn {
+      background: #800020;
+      border: 1px solid rgba(255, 182, 193, 0.3);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    /* Wine Red Envelope */
+    .envelope-wrapper {
+      position: relative;
+      width: 320px;
+      height: 210px;
+      background-color: #4a0011;
+      border-radius: 0 0 10px 10px;
+      cursor: pointer;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+      margin-top: 10px;
+      transition: transform 0.4s ease;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 160px solid transparent;
+      border-right: 160px solid transparent;
+      border-top: 115px solid #6b0019;
+      transform-origin: top;
+      transition: transform 0.6s ease, z-index 0.6s ease;
+      z-index: 5;
+    }
+
+    .envelope-pocket {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 160px solid #570015;
+      border-right: 160px solid #570015;
+      border-bottom: 105px solid #36000c;
+      border-radius: 0 0 10px 10px;
+      z-index: 4;
+    }
+
+    .heart-seal {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 44px;
+      background: radial-gradient(circle, #b30032 0%, #570015 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      border: 2px solid #800020;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      z-index: 6;
+      transition: opacity 0.4s ease;
+    }
+
+    /* Parchment Letter */
+    .letter {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 300px;
+      background: #f4e8c1;
+      background-image: radial-gradient(#e8d5a3 1px, transparent 0);
+      background-size: 12px 12px;
+      color: #3b2314;
+      padding: 30px 22px;
+      border-radius: 4px;
+      box-shadow: inset 0 0 30px rgba(120, 80, 40, 0.3), 0 5px 25px rgba(0,0,0,0.6);
+      border: 1px solid #d4c08e;
+      transition: all 0.8s ease;
+      z-index: 3;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .envelope-wrapper.open .flap {
+      transform: rotateX(180deg);
+      z-index: 2;
+    }
+
+    .envelope-wrapper.open .heart-seal {
+      opacity: 0;
+    }
+
+    .envelope-wrapper.open .letter {
+      position: relative;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      max-height: 4000px;
+      opacity: 1;
+      z-index: 10;
+      margin-top: 20px;
+    }
+
+    .letter-text {
+      font-size: 1.25rem;
+      line-height: 1.9;
+      text-align: left;
+      white-space: pre-line;
+      color: #2e1708;
+      font-family: 'Dancing Script', cursive;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .ending {
+      margin-top: 25px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #6b0019;
+      text-align: right;
+      font-family: 'Dancing Script', cursive;
+      font-style: italic;
+      border-top: 1px dashed #b8a070;
+      padding-top: 15px;
+    }
+
+    .hint {
+      font-size: 0.85rem;
+      color: #e0b0b8;
+      margin-top: 20px;
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Android Optimized Audio Tag -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="bg-elements" id="bgElements"></div>
+
+  <div class="container">
+    
+    <!-- PAGE 1 -->
+    <div class="page active" id="page1">
+      <div class="welcome-card">
+        <h1 class="welcome-title">Devangana CP ❤️</h1>
+        <p class="welcome-subtitle">Happy Girlfriend's Day, baby! <br>I have something special for you...</p>
+        <button class="start-btn" id="startBtn">Open Your Gift ✨</button>
+      </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page" id="page2">
+      <h2 class="page-title">For My Girl ❤️</h2>
+
+      <div class="music-container">
+        <span style="font-size: 0.9rem; color: #ffc2cd;">🎵 Background Music</span>
+        <button class="music-btn" id="musicBtn">Play Music</button>
+      </div>
+
+      <div class="envelope-wrapper" id="envelope" onclick="openEnvelope()">
+        <div class="flap"></div>
+        <div class="envelope-pocket"></div>
+        <div class="heart-seal">💌</div>
+
+        <div class="letter" id="letter">
+          <p class="letter-text">Babyyyyy, happy Girlfriend's Dayyyyyyy!!! ❤️🥹
+
+It's August 1st, and this is the first time I'm celebrating Girlfriend's Dayyyyy, and I'm sooo sooo freaking lucky that you're my girlfriend (to be wife 😤❤️). I get to celebrate this day because of you, my love. I'm sooo sooo happy right now, I can't even explain the amount of happiness I'm feeling. Likeeeee... ughhhhh, it's so freaking dreamy, I don't even know what to sayyyyy.
+
+I loveeeee youuuu sooo sooo much, like a lottttt. I'm so freaking lucky. I seriously don't know what I did to deserve you, baby. Thank you for choosing me to be your boyfriend. I promise you, I'd choose you in every single universe. There's no one perfect for me except you. I know that for a fact.
+
+And I know I've said this a million times, but it's true...
+You complete me, baby. ❤️
+
+You're the reason I smile every day. Every time I look into your eyes, I get butterflies, and everything that was bothering me just disappears. The way you do everything is sooo freaking admirable. Ughhh, I wanna marry you, love. I wanna spend all my time with you. You're the perfect girlfriend for me, and I know for a fact that we're soulmates. I'm so glad I found my soulmate in you.
+
+I LOVEEEE YOU, BABY. I REALLY DO.
+
+And yeah, I know I say this a lot, but when I say "I love you," I mean I love you a trillion... no, a zillion... no, an infinite number of times. There isn't a number big enough to describe how much I love you. You're my everything, my home, my safe place, and I'll always cherish you.
+
+Alsoooo... you're a freaking badass, baby. 😤❤️ You're honestly such a flex. You know how many people ask me, "Wait... is that your girlfriend?" and every single time I hear that, I feel so proud and so happy because I get to say, "Yeah, she's my girl."
+
+I'm gonna be honest... I get jealous really easily when it comes to you. I know I sound selfish, but it's only because I love you so much. I don't want anyone trying to get close to you or love you the way I do. It honestly boils my blood. I just want you all to myself because you're my baby. ❤️
+
+YOU ARE MINE... and I'm yours. 🤍
+
+Once again...
+Happy Girlfriend's Day, babyyyyyy. ❤️
+
+Thank you for being the best thing that's ever happened to me. I know we've had our ups and downs, but that's life, right? You taught me that. And no matter what we've been through, one thing has never changed...
+
+I'll always love you.
+Mwahhhhhhh 💋💋💋 I wish I could kiss you right now. Mwahhh, mwahhh, mwahhhhh.
+
+I love you more than words will ever be able to explain. Happy Girlfriend's Day, my future wife. ❤️♾️</p>
+
+          <div class="ending">
+            Forever & Always — Eshaan ❤️
+          </div>
+        </div>
+      </div>
+
+      <p class="hint" id="hintText">✨ Click the envelope to open your letter ✨</p>
+    </div>
+
+  </div>
+
+  <script>
+    const audio = document.getElementById('bgMusic');
+    const startBtn = document.getElementById('startBtn');
+    const musicBtn = document.getElementById('musicBtn');
+    let isPlaying = false;
+
+    // Android Direct User Touch Activation
+    async function handleAndroidStart() {
+      try {
+        await audio.play();
+        isPlaying = true;
+        musicBtn.innerText = "Pause Music";
+      } catch (err) {
+        console.log("Play failed, retrying on user click:", err);
+        musicBtn.innerText = "Play Music";
+      }
+
+      // Page Transition
+      document.getElementById('page1').classList.remove('active');
+      setTimeout(() => {
+        document.getElementById('page2').classList.add('active');
+      }, 300);
+    }
+
+    startBtn.addEventListener('click', handleAndroidStart);
+
+    // Manual Toggle Button
+    musicBtn.addEventListener('click', async function() {
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        musicBtn.innerText = "Play Music";
+      } else {
+        try {
+          await audio.play();
+          isPlaying = true;
+          musicBtn.innerText = "Pause Music";
+        } catch(e) {
+          console.log(e);
+        }
+      }
+    });
+
+    function openEnvelope() {
+      const envelope = document.getElementById('envelope');
+      const hint = document.getElementById('hintText');
+      
+      if (!envelope.classList.contains('open')) {
+        envelope.classList.add('open');
+        hint.innerText = "❤️ Happy Girlfriend's Day, Devangana! ❤️";
+      }
+    }
+
+    // Floating Background Elements
+    const bgContainer = document.getElementById('bgElements');
+    const symbols = ['❤️', '✨', '💖', '🍷', '🌹'];
+
+    for (let i = 0; i < 25; i++) {
+      const el = document.createElement('div');
+      el.className = 'heart';
+      el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.animationDuration = (Math.random() * 3 + 5) + 's';
+      el.style.animationDelay = Math.random() * 5 + 's';
+      el.style.fontSize = (Math.random() * 14 + 10) + 'px';
+      bgContainer.appendChild(el);
+    }
+  </script>
+</body>
+</html>
